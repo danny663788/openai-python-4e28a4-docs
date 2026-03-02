@@ -1,0 +1,15 @@
+
+
+| Resource\_Name | Parent\_Module | Methods | Parameters | Models\_Supported | Streaming\_Support | Description |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| Completions | src/openai/resources/chat/completions/completions.py | create, retrieve, update, list, delete, parse, stream | model, messages, temperature, top\_p, n, stream, stop, max\_tokens, response\_format, parallel\_tool\_calls | gpt-4o, gpt-4o-mini, gpt-4, gpt-3.5-turbo | true | Standard interface for generating text completions from models in chat format. |
+| Responses | src/openai/resources/responses/responses.py | create, retrieve, delete, cancel, parse, stream | model, input, background, tools, tool\_choice, temperature, top\_p, max\_output\_tokens | gpt-4o, gpt-4o-mini | true | The primary API for generating responses with support for background processing and complex tool interactions. |
+| Realtime | src/openai/resources/beta/realtime/realtime.py | connect | model, modalities, instructions, voice, input\_audio\_format, output\_audio\_format | gpt-4o-realtime-preview | true | Websocket-based interface for low-latency, multi-modal conversational experiences. |
+| Assistants | src/openai/resources/beta/assistants.py | create, retrieve, update, list, delete | model, name, description, instructions, tools, tool\_resources, metadata | gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo | false | Builds AI assistants that can use tools and respond to user messages. |
+| Runs | src/openai/resources/beta/threads/runs/runs.py | create, retrieve, update, list, cancel, submit\_tool\_outputs, create\_and\_poll, create\_and\_stream, poll, stream | assistant\_id, thread\_id, instructions, tools, metadata, stream, parallel\_tool\_calls | Not in source | true | Executes an assistant on a thread to process messages and generate responses. |
+| Speech | src/openai/resources/audio/speech.py | create | model, voice, input, response\_format, speed | tts-1, tts-1-hd, gpt-4o-mini-tts | true | Generates audio from text (Text-to-Speech). |
+| Transcriptions | src/openai/resources/audio/transcriptions.py | create | file, model, language, prompt, response\_format, temperature, timestamp\_granularities | whisper-1, gpt-4o-transcribe, gpt-4o-mini-transcribe | true | Transcribes audio into text in the specified format. |
+| Embeddings | src/openai/resources/embeddings.py | create | input, model, dimensions, encoding\_format, user | text-embedding-ada-002, text-embedding-3-small, text-embedding-3-large | false | Creates numerical vector representations of input text. |
+| FineTuning Jobs | src/openai/resources/fine\_tuning/jobs/jobs.py | create, retrieve, list, cancel, list\_events, pause, resume | model, training\_file, hyperparameters, suffix, validation\_file, integrations, method | babbage-002, davinci-002, gpt-3.5-turbo, gpt-4o-mini | false | Manages custom model training processes. |
+| VectorStores | src/openai/resources/vector\_stores/vector\_stores.py | create, retrieve, update, list, delete, search | name, file\_ids, expires\_after, chunking\_strategy, metadata | Not in source | false | Manages collections of files for tool access, such as file search. |
+
